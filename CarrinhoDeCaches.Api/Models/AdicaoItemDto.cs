@@ -1,8 +1,8 @@
 ﻿namespace CarrinhoDeCaches.Api.Models
 {
-    public class CadastroItemDto
+    public class AdicaoItemDto
     {
         public string Usuario { get; set; }
-        public string[] Itens { get; set; }
+        public string[] ItensDescricao { get; set; }
     }
 }

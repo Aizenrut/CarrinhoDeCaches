@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ServiceStack.Redis" Version="5.10.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CarrinhoDeCaches.IDados\CarrinhoDeCaches.IDados.csproj" />
   </ItemGroup>
 

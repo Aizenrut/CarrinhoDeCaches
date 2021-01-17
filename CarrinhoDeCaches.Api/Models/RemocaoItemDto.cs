@@ -1,8 +1,10 @@
-﻿namespace CarrinhoDeCaches.Api.Models
+﻿using System;
+
+namespace CarrinhoDeCaches.Api.Models
 {
     public class RemocaoItemDto
     {
         public string Usuario { get; set; }
-        public string[] ChaveItens { get; set; }
+        public Guid[] ItensId { get; set; }
     }
 }

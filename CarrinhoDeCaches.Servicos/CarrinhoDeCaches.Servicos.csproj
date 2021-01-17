@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarrinhoDeCaches.Dominio\CarrinhoDeCaches.Dominio.csproj" />
+    <ProjectReference Include="..\CarrinhoDeCaches.IDados\CarrinhoDeCaches.IDados.csproj" />
     <ProjectReference Include="..\CarrinhoDeCaches.IServicos\CarrinhoDeCaches.IServicos.csproj" />
   </ItemGroup>
 

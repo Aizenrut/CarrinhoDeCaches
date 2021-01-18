@@ -10,6 +10,7 @@ namespace CarrinhoDeCaches.Servicos
     public class CarrinhoServico : ICarrinhoServico
     {
         private const string FORMATO_CARRINHO = "carrinho:{0}";
+        private readonly TimeSpan tempoExpiracaoPadrao = TimeSpan.FromMinutes(30);
 
         private readonly IRedisRepositorio redisRepositorio;
 
@@ -35,8 +36,10 @@ namespace CarrinhoDeCaches.Servicos
         public void AdicionarItens(string usuario, params Item[] itens)
         {
             var chaveValores = itens.Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.Descricao));
+            var carrinho = ObterCarrinho(usuario);
 
-            redisRepositorio.HSet(ObterCarrinho(usuario), chaveValores.ToArray());
+            redisRepositorio.HSet(carrinho, chaveValores.ToArray());
+            redisRepositorio.Expire(carrinho, tempoExpiracaoPadrao);
         }
 
         public void AlterarItens(string usuario, params Item[] itens)

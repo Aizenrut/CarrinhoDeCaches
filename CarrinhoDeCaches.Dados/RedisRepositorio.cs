@@ -7,7 +7,6 @@ namespace CarrinhoDeCaches.Dados
 {
     public class RedisRepositorio : IRedisRepositorio
     {
-        private readonly TimeSpan tempoExpiracaoPadrao = TimeSpan.FromMinutes(30);
         private readonly IRedisClient redisClient;
 
         public RedisRepositorio(IRedisClient redisClient)
@@ -39,6 +38,11 @@ namespace CarrinhoDeCaches.Dados
         {
             foreach (var campo in campos)
                 redisClient.RemoveEntryFromHash(chave, campo);
+        }
+
+        public void Expire(string chave, TimeSpan tempo)
+        {
+            redisClient.ExpireEntryIn(chave, tempo);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CarrinhoDeCaches.IDados
 {
@@ -9,5 +10,6 @@ namespace CarrinhoDeCaches.IDados
         void HSet(string chave, params KeyValuePair<string, string>[] campoValores);
         void Del(params string[] chaves);
         void HDel(string chave, params string[] campos);
+        void Expire(string chave, TimeSpan tempo);
     }
 }
